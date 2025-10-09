@@ -2,7 +2,7 @@ import 'package:farmacy/Telas/fornecedor.dart';
 import 'package:farmacy/Telas/grupos/grupos.dart';
 import 'package:farmacy/Telas/home.dart';
 import 'package:farmacy/Telas/produtos.dart';
-import 'package:farmacy/Telas/relat%C3%B3rios.dart';
+import 'package:farmacy/Telas/relatorios.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,6 +10,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,17 +43,9 @@ class _TelaInicialState extends State<TelaInicial> {
     ];
 
     return Scaffold(
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: null,
-      //   backgroundColor: Color(0xFF0F4571),
-      //   shape: CircleBorder(),
-      //   child: Icon(Icons.home, color: Colors.white),
-      //),
-
       // COMEÇO DO APP BAR
       appBar: AppBar(
-        backgroundColor: Color(0xFF0F4571),
+        backgroundColor: Color(0xFF2B4593),
         title: Align(
           alignment: AlignmentGeometry.center,
           child: Padding(
@@ -60,7 +54,7 @@ class _TelaInicialState extends State<TelaInicial> {
               "FARMÁCIA",
               style: TextStyle(
                 fontWeight: FontWeight.w700,
-                color: Colors.white,
+                color: Color(0xFFe8e8e8),
                 fontSize: 32,
               ),
             ),
@@ -69,7 +63,7 @@ class _TelaInicialState extends State<TelaInicial> {
       ),
 
       body: Container(padding: EdgeInsets.all(16), child: telas[_indiceAtual]),
-
+      backgroundColor: Color(0xFFe8e8e8),
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20),
@@ -85,9 +79,9 @@ class _TelaInicialState extends State<TelaInicial> {
           },
 
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Color(0xFF0F4571),
+          backgroundColor: Color(0xFF2B4593),
           selectedItemColor: Colors.yellow.shade800,
-          unselectedItemColor: Colors.white,
+          unselectedItemColor: Color(0xFFe8e8e8),
 
           selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
           unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),

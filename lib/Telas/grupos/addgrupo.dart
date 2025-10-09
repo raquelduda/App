@@ -12,8 +12,8 @@ class _AddgrupoState extends State<Addgrupo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.white),
-        backgroundColor: Color(0xFF0F4571),
+        iconTheme: IconThemeData(color: Color(0xFFe8e8e8)),
+        backgroundColor: Color(0xFF2B4593),
         title: Align(
           alignment: AlignmentGeometry.center,
           child: Padding(
@@ -22,7 +22,7 @@ class _AddgrupoState extends State<Addgrupo> {
               "ADICIONAR GRUPOS",
               style: TextStyle(
                 fontWeight: FontWeight.w700,
-                color: Colors.white,
+                color: Color(0xFFe8e8e8),
                 fontSize: 25,
               ),
             ),
