@@ -24,7 +24,7 @@ class _GruposState extends State<Grupos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFe8e8e8),
+      backgroundColor: Color(0xFFFFFDF5),
 
       body: Column(
         children: <Widget>[
@@ -36,6 +36,17 @@ class _GruposState extends State<Grupos> {
               onChanged: (value) {
                 filterUsers(value);
               },
+              backgroundColor: WidgetStateProperty.all(Color(0xFF95B1EE)),
+              hintStyle: WidgetStateProperty.all(
+                TextStyle(color: Color(0xFFFFFDF5)),
+              ),
+              textStyle: WidgetStateProperty.all(
+                TextStyle(color: Color(0xFFFFFDF5)),
+              ),
+              shape: WidgetStateProperty.all(
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+              ),
+              elevation: WidgetStateProperty.all(0),
             ),
           ),
 
@@ -51,24 +62,17 @@ class _GruposState extends State<Grupos> {
                   title: Container(
                     height: 80,
                     decoration: BoxDecoration(
-                      color: Color(0xFF2B4593),
-                      borderRadius: BorderRadius.circular(8),
+                      color: Color(0xFFE7F1A8),
 
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color.fromARGB(66, 27, 1, 121),
-                          blurRadius: 7,
-                          offset: Offset(4, 8),
-                        ),
-                      ],
+                      borderRadius: BorderRadius.circular(8),
                     ),
                     child: Center(
                       child: Text(
                         name,
                         style: TextStyle(
-                          color: Color(0xFFe8e8e8),
-                          fontWeight: FontWeight.w400,
-                          fontSize: 25,
+                          color: Color(0xFF364C84),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 20,
                           fontFamily: 'Arial',
                         ),
                       ),
@@ -91,8 +95,8 @@ class _GruposState extends State<Grupos> {
         },
 
         shape: CircleBorder(),
-        backgroundColor: Colors.yellow.shade800,
-        foregroundColor: Color(0xFF2B4593),
+        backgroundColor: Color(0xff95B1EE),
+        foregroundColor: Color(0xFFFFFDF5),
         child: Icon(Icons.add),
       ),
     );
@@ -120,7 +124,7 @@ class _GruposState extends State<Grupos> {
                 children: [
                   Checkbox(
                     value: isChecked,
-                    activeColor: Colors.blueAccent,
+                    activeColor: Color(0xff364C84),
                     onChanged: (newBool) {
                       setStateDialog(() {
                         isChecked = newBool!;
@@ -139,7 +143,9 @@ class _GruposState extends State<Grupos> {
                       Navigator.pop(context);
                     },
                     style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(Colors.red),
+                      backgroundColor: WidgetStatePropertyAll(
+                        const Color.fromARGB(255, 224, 133, 126),
+                      ),
                       foregroundColor: WidgetStatePropertyAll(
                         Color(0xFFe8e8e8),
                       ),
@@ -153,7 +159,9 @@ class _GruposState extends State<Grupos> {
                       Navigator.pop(context);
                     },
                     style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(Colors.green),
+                      backgroundColor: WidgetStatePropertyAll(
+                        const Color.fromARGB(255, 126, 228, 130),
+                      ),
                       foregroundColor: WidgetStatePropertyAll(
                         Color(0xFFe8e8e8),
                       ),

@@ -45,7 +45,7 @@ class _TelaInicialState extends State<TelaInicial> {
     return Scaffold(
       // COMEÇO DO APP BAR
       appBar: AppBar(
-        backgroundColor: Color(0xFF2B4593),
+        backgroundColor: Color(0xFFFFFDF5),
         title: Align(
           alignment: AlignmentGeometry.center,
           child: Padding(
@@ -54,7 +54,7 @@ class _TelaInicialState extends State<TelaInicial> {
               "FARMÁCIA",
               style: TextStyle(
                 fontWeight: FontWeight.w700,
-                color: Color(0xFFe8e8e8),
+                color: Color(0xFF364C84),
                 fontSize: 32,
               ),
             ),
@@ -63,7 +63,7 @@ class _TelaInicialState extends State<TelaInicial> {
       ),
 
       body: Container(padding: EdgeInsets.all(16), child: telas[_indiceAtual]),
-      backgroundColor: Color(0xFFe8e8e8),
+      backgroundColor: Color(0xFFFFFDF5),
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20),
@@ -79,9 +79,9 @@ class _TelaInicialState extends State<TelaInicial> {
           },
 
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Color(0xFF2B4593),
-          selectedItemColor: Colors.yellow.shade800,
-          unselectedItemColor: Color(0xFFe8e8e8),
+          backgroundColor: Color(0xFF364C84),
+          selectedItemColor: Color(0xffE7F1A8),
+          unselectedItemColor: Color(0xFF95B1EE),
 
           selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
           unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
