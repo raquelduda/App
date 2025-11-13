@@ -24,7 +24,7 @@ class _GruposState extends State<Grupos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFFDF5),
+      backgroundColor: Color(0xFFFAF8E6),
 
       body: Column(
         children: <Widget>[
@@ -36,12 +36,12 @@ class _GruposState extends State<Grupos> {
               onChanged: (value) {
                 filterUsers(value);
               },
-              backgroundColor: WidgetStateProperty.all(Color(0xFF95B1EE)),
+              backgroundColor: WidgetStateProperty.all(Color(0xFF576390)),
               hintStyle: WidgetStateProperty.all(
-                TextStyle(color: Color(0xFFFFFDF5)),
+                TextStyle(color: Colors.white),
               ),
               textStyle: WidgetStateProperty.all(
-                TextStyle(color: Color(0xFFFFFDF5)),
+                TextStyle(color: Colors.white),
               ),
               shape: WidgetStateProperty.all(
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
@@ -62,15 +62,15 @@ class _GruposState extends State<Grupos> {
                   title: Container(
                     height: 80,
                     decoration: BoxDecoration(
-                      color: Color(0xFFE7F1A8),
+                      color: Color(0xFFEFBE63),
 
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: Center(
                       child: Text(
                         name,
                         style: TextStyle(
-                          color: Color(0xFF364C84),
+                          color: Color(0xFF576390),
                           fontWeight: FontWeight.w600,
                           fontSize: 20,
                           fontFamily: 'Arial',
@@ -95,8 +95,8 @@ class _GruposState extends State<Grupos> {
         },
 
         shape: CircleBorder(),
-        backgroundColor: Color(0xff95B1EE),
-        foregroundColor: Color(0xFFFFFDF5),
+        backgroundColor: Color(0xFF8CA6EF),
+        foregroundColor: Color(0xFFFAF8E6),
         child: Icon(Icons.add),
       ),
     );
@@ -160,7 +160,7 @@ class _GruposState extends State<Grupos> {
                     },
                     style: ButtonStyle(
                       backgroundColor: WidgetStatePropertyAll(
-                        const Color.fromARGB(255, 126, 228, 130),
+                        Color(0xFF8CA6EF),
                       ),
                       foregroundColor: WidgetStatePropertyAll(
                         Color(0xFFe8e8e8),
