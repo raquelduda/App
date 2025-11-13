@@ -36,7 +36,7 @@ class _GruposState extends State<Grupos> {
               onChanged: (value) {
                 filterUsers(value);
               },
-              backgroundColor: WidgetStateProperty.all(Color(0xFF576390)),
+              backgroundColor: WidgetStateProperty.all(Color(0xFF8CA6EF)),
               hintStyle: WidgetStateProperty.all(
                 TextStyle(color: Colors.white),
               ),
@@ -51,15 +51,21 @@ class _GruposState extends State<Grupos> {
           ),
 
           Expanded(
-            child: ListView.builder(
+            child: GridView.builder(
               padding: EdgeInsets.all(8),
               itemCount: users.length,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, // numero de colunas
+                crossAxisSpacing: 8, // espaço horizontal
+                mainAxisSpacing: 8, // espaço vertical
+                childAspectRatio: 2, //largura e altura dos blocos
+              ),
               itemBuilder: (context, index) {
                 final user = users[index];
                 final name = user['name']['first'];
-                return ListTile(
+                return GestureDetector(
                   onTap: () => openDialog(),
-                  title: Container(
+                  child: Container(
                     height: 80,
                     decoration: BoxDecoration(
                       color: Color(0xFFEFBE63),
