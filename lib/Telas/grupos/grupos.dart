@@ -12,7 +12,7 @@ class Grupos extends StatefulWidget {
 class _GruposState extends State<Grupos> {
   bool? isChecked = false;
   List<dynamic> users = [];
-  List<dynamic> allUsers = []; //lista completa da api
+  List<dynamic> allUsers = []; // lista completa da API
   TextEditingController searchController = TextEditingController();
 
   @override
@@ -24,29 +24,27 @@ class _GruposState extends State<Grupos> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFAF8E6),
+      backgroundColor: Color(0xFFEDE7E3),
 
       body: Column(
         children: <Widget>[
           Container(
-            child: SearchBar(
+            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+            child: TextField(
               controller: searchController,
-              hintText: "Pesquisar por Grupo...",
-              leading: const Icon(Icons.search),
-              onChanged: (value) {
-                filterUsers(value);
-              },
-              backgroundColor: WidgetStateProperty.all(Color(0xFF8CA6EF)),
-              hintStyle: WidgetStateProperty.all(
-                TextStyle(color: Colors.white),
+              onChanged: filterUsers,
+              decoration: InputDecoration(
+                hintText: "Pesquisar por Grupo...",
+                hintStyle: TextStyle(color: Colors.white),
+                prefixIcon: Icon(Icons.search, color: Colors.white),
+                filled: true,
+                fillColor: Color(0xFF489FB5),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide.none,
+                ),
               ),
-              textStyle: WidgetStateProperty.all(
-                TextStyle(color: Colors.white),
-              ),
-              shape: WidgetStateProperty.all(
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-              ),
-              elevation: WidgetStateProperty.all(0),
+              style: TextStyle(color: Colors.white),
             ),
           ),
 
@@ -55,10 +53,10 @@ class _GruposState extends State<Grupos> {
               padding: EdgeInsets.all(8),
               itemCount: users.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2, // numero de colunas
-                crossAxisSpacing: 8, // espaço horizontal
-                mainAxisSpacing: 8, // espaço vertical
-                childAspectRatio: 2, //largura e altura dos blocos
+                crossAxisCount: 2,
+                crossAxisSpacing: 8,
+                mainAxisSpacing: 8,
+                childAspectRatio: 2,
               ),
               itemBuilder: (context, index) {
                 final user = users[index];
@@ -68,15 +66,14 @@ class _GruposState extends State<Grupos> {
                   child: Container(
                     height: 80,
                     decoration: BoxDecoration(
-                      color: Color(0xFFEFBE63),
-
+                      color: Color(0xFF82C0CC),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Center(
                       child: Text(
                         name,
                         style: TextStyle(
-                          color: Color(0xFF576390),
+                          color: Color(0xFFEDE7E3),
                           fontWeight: FontWeight.w600,
                           fontSize: 20,
                           fontFamily: 'Arial',
@@ -92,17 +89,10 @@ class _GruposState extends State<Grupos> {
       ),
 
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          openDialog();
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(builder: (context) => Addgrupo()),
-          // );
-        },
-
+        onPressed: openDialog,
         shape: CircleBorder(),
-        backgroundColor: Color(0xFF8CA6EF),
-        foregroundColor: Color(0xFFFAF8E6),
+        backgroundColor: Color(0xFFFFA62B),
+        foregroundColor: Color(0xFFEDE7E3),
         child: Icon(Icons.add),
       ),
     );
@@ -111,7 +101,7 @@ class _GruposState extends State<Grupos> {
   Future openDialog() => showDialog(
     context: context,
     builder: (BuildContext context) {
-      bool isChecked = false; // variável temporária para o popup
+      bool isChecked = false;
 
       return StatefulBuilder(
         builder: (context, setStateDialog) {
@@ -121,7 +111,10 @@ class _GruposState extends State<Grupos> {
               decoration: InputDecoration(
                 labelText: 'Nome',
                 filled: true,
-                prefixIcon: Icon(Icons.medical_services),
+                prefixIcon: Icon(
+                  Icons.medical_services,
+                  color: Color(0xFF16697A),
+                ),
                 suffixIcon: Icon(Icons.clear),
               ),
             ),
@@ -130,7 +123,7 @@ class _GruposState extends State<Grupos> {
                 children: [
                   Checkbox(
                     value: isChecked,
-                    activeColor: Color(0xff364C84),
+                    activeColor: Color(0xFF16697A),
                     onChanged: (newBool) {
                       setStateDialog(() {
                         isChecked = newBool!;
@@ -145,17 +138,15 @@ class _GruposState extends State<Grupos> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
                   ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+                    onPressed: () => Navigator.pop(context),
                     style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(
-                        const Color.fromARGB(255, 224, 133, 126),
+                      backgroundColor: WidgetStateProperty.all(
+                        Color(0xFFFFA62B),
                       ),
-                      foregroundColor: WidgetStatePropertyAll(
-                        Color(0xFFe8e8e8),
+                      foregroundColor: WidgetStateProperty.all(
+                        Color(0xFFEDE7E3),
                       ),
-                      minimumSize: WidgetStatePropertyAll(const Size(100, 50)),
+                      minimumSize: WidgetStateProperty.all(Size(100, 50)),
                     ),
                     child: Text('Deletar'),
                   ),
@@ -165,13 +156,13 @@ class _GruposState extends State<Grupos> {
                       Navigator.pop(context);
                     },
                     style: ButtonStyle(
-                      backgroundColor: WidgetStatePropertyAll(
-                        Color(0xFF8CA6EF),
+                      backgroundColor: WidgetStateProperty.all(
+                        Color(0xFF489FB5),
                       ),
-                      foregroundColor: WidgetStatePropertyAll(
-                        Color(0xFFe8e8e8),
+                      foregroundColor: WidgetStateProperty.all(
+                        Color(0xFFEDE7E3),
                       ),
-                      minimumSize: WidgetStatePropertyAll(const Size(100, 50)),
+                      minimumSize: WidgetStateProperty.all(Size(100, 50)),
                     ),
                     child: Text('Salvar'),
                   ),
@@ -186,7 +177,7 @@ class _GruposState extends State<Grupos> {
 
   // Busca os usuários da API
   void fetchUsers() async {
-    const url = 'https://randomuser.me/api/?results=10';
+    const url = 'https://randomuser.me/api/?results=5';
     final uri = Uri.parse(url);
     final response = await http.get(uri);
     final body = response.body;
@@ -197,7 +188,7 @@ class _GruposState extends State<Grupos> {
     });
   }
 
-  // Filtra resultados com base no texto digitado
+  // Filtro na barra de pesquisa
   void filterUsers(String query) {
     final filtered = allUsers.where((user) {
       final name = user['name']['first'].toString().toLowerCase();

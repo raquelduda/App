@@ -4,6 +4,7 @@ import 'package:farmacy/Telas/home.dart';
 import 'package:farmacy/Telas/produtos.dart';
 import 'package:farmacy/Telas/relatorios.dart';
 import 'package:flutter/material.dart';
+import 'package:farmacy/telas/login.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +17,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Farmácia',
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(
+        primaryColor: Color(0xFF16697A),
+        scaffoldBackgroundColor: Color(0xFFEDE7E3),
+      ),
       home: TelaInicial(),
     );
   }
@@ -43,19 +47,35 @@ class _TelaInicialState extends State<TelaInicial> {
     ];
 
     return Scaffold(
-      // COMEÇO DO APP BAR
+      // APP BAR
       appBar: AppBar(
-        backgroundColor: Color(0xFFFAF8E6),
+        backgroundColor: Colors.transparent,
+
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Login()),
+              );
+            },
+            icon: Icon(
+              Icons.account_circle_outlined,
+              size: 30,
+              color: Color(0xFF489FB5),
+            ),
+          ),
+        ],
         title: Align(
-          alignment: AlignmentGeometry.center,
+          alignment: Alignment.center,
           child: Padding(
-            padding: EdgeInsetsGeometry.all(16),
+            padding: EdgeInsetsGeometry.fromLTRB(50, 0, 0, 0),
             child: Text(
-              "FARMÁCIA",
+              "Farmácia",
               style: TextStyle(
-                fontWeight: FontWeight.w700,
-                color: Color(0xFF8CA6EF),
-                fontSize: 35,
+                fontWeight: FontWeight.w400,
+                color: Color(0xFF489FB5),
+                fontSize: 27,
               ),
             ),
           ),
@@ -63,13 +83,13 @@ class _TelaInicialState extends State<TelaInicial> {
       ),
 
       body: Container(padding: EdgeInsets.all(16), child: telas[_indiceAtual]),
-      backgroundColor: Color(0xFFFAF8E6),
+      backgroundColor: Color(0xFFEDE7E3),
+
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
         ),
-
         child: BottomNavigationBar(
           currentIndex: _indiceAtual,
           onTap: (indice) {
@@ -77,14 +97,13 @@ class _TelaInicialState extends State<TelaInicial> {
               _indiceAtual = indice;
             });
           },
-
           type: BottomNavigationBarType.fixed,
-          backgroundColor: Color(0xFF576390),
-          selectedItemColor: Color(0xffEFBE63),
-          unselectedItemColor: Color(0xFFFAF8E6),
+          backgroundColor: Colors.white,
+          selectedItemColor: Color(0xFFFFA62B),
+          unselectedItemColor: Color(0xFF82C0CC),
 
-          selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
-          unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+          selectedLabelStyle: TextStyle(fontWeight: FontWeight.w500),
+          unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w400),
 
           items: [
             BottomNavigationBarItem(
